@@ -21,6 +21,10 @@ To place orders (e.g. four burgers, three cokes and one pizza):
 
 `takeaway.place_order(:pizza, 1)`
 
+To checkout:
+
+`takeaway.checkout(total)`
+
 To send the order (and receive the message):
 
 `takeaway.send_order`
