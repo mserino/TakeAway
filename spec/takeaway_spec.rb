@@ -36,14 +36,14 @@ describe TakeAway do
 	end
 
 	it 'checks if the total amount is correct' do
-		expect(takeaway.check_total).to eq takeaway.total
+		takeaway.place_order(:burger, 2)
+		expect(takeaway.checkout(10)).to be_true 
 	end
 
-	# it 'raises an error if the total amount is incorrect' do
-	# 	price_list = [25]
-	# 	total = [20]
-	# 	expect(takeaway.check_total).to raise_error RuntimeError
-	# 	end
+	it 'check if the total is incorrect' do
+		takeaway.place_order(:burger, 2)
+		expect{takeaway.checkout(15)}.to raise_error(RuntimeError, "The total is incorrect")
+	end
 
 	it 'sends a text message when the order is sent' do
 		allow(takeaway).to receive(:send_order) { "Thank you. The order has been send." }

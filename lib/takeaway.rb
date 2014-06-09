@@ -38,8 +38,11 @@ class TakeAway
 		@total = price_list.inject(:+)
 	end
 
-	def check_total
-		price_list.inject(:+)
+	def checkout(input)
+		raise RuntimeError, "The total is incorrect" if input != @total
+		@total
+		"The total is correct, you can now send the order"
+		send_order
 	end
 
 	def current_time
