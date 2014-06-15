@@ -9,22 +9,36 @@ It has a list of all dishes available, it can place the order by the dish and it
 
 ##How to use it
 
-`require './lib/takeaway'`
+Require the files:
 
-`takeaway = TakeAway.new`
+`require './lib/dish'`
 
-To place orders (e.g. four burgers, three cokes and one pizza):
+`require './lib/order'`
 
-`takeaway.place_order(:burger, 4)`
+`require './lib/menu'`
 
-`takeaway.place_order(:coke, 3)`
+Cook the dishes:
 
-`takeaway.place_order(:pizza, 1)`
+`burger = Dish.new('Burger', 5.0)`
 
-To checkout:
+`chicken = Dish.new('Chicken', 3.0)`
 
-`takeaway.checkout(total)`
+Add the dishes to the menu:
 
-To send the order (and receive the message):
+`menu = Menu.new`
 
-`takeaway.send_order`
+`menu.add burger`
+
+`menu.add chicken`
+
+Order the dishes:
+
+`order = Order.new`
+
+`order.place_order burger, 3`
+
+`order.place_order chicken, 2`
+
+Go for checkout and input the total:
+
+`order.checkout 21.0`
