@@ -4,7 +4,7 @@ describe TakeAway do
 
 	let(:takeaway) { TakeAway.new }
 
-	it 'has a menu on initialization' do
+	it 'has a menu upon initialization' do
 		menu = {burger: 5, coke: 4, pizza: 2}
 		expect(takeaway.menu).to eq menu
 	end
