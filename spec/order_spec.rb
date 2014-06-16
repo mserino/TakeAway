@@ -30,4 +30,9 @@ describe Order do
 		expect(order.calculate_total).to eq 14
 	end
 	
+	it 'can checkout and the total is different from the input' do
+		order.place_order(burger, 2)
+		order.place_order(chicken, 1)
+		expect(order.message(11.0)).to eq "The total is incorrect, please try again"
+	end
 end
